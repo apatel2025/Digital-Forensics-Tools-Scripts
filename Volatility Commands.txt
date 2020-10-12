@@ -1,0 +1,42 @@
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img pslist --profile=WinXPSP3x86 -> Scan Listed Objects in Memory
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img psscan --profile=WinXPSP3x86 -> Scan Memory
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img imageinfo -> Grab Memory Image Info
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img pstree --profile=WinXPSP3x86 -> Grab Tree Info
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img psxview --profile=WinXPSP3x86 -> Compare if object is running on memory or running off hook.
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img dlllist -p 1624 --profile=WinXPSP3x86 -> List all DLLS associated with the targeted PID
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img getsids -p 1624 --profile=WinXPSP3x86 -> List all SIDS associated with the targeted SID
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img handles -p 1624 -t mutant --profile=WinXPSP3x86 ->  List all Handles with Mutants associated with the PID
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img svcscan --profile=WinXPSP3x86 -> Autorun/Autostartup programs Scan
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img cmdscan --profile=WinXPSP3x86 -> List all commands run (Not 100% on all of them)
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img connscan --profile=WinXPSP3x86 -> List all connections in memory for Image
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img sockets --profile=WinXPSP3x86 -> List all ports/sockets in memory for Image
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img sockscan --profile=WinXPSP3x86 -> List a more detailed Socket scan
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img netscan --profile=WinXPSP3x86 -> only works on Win 7+ 
+
+volatility-2.5.standalone.exe -f c:\labimages\stuxnet.img ldrmodules -p 868 --profile=WinXPSP3x86 -> List all LDR modules associated with given PID
+
+volatility-2.5.standalone.exe -f c:\labimages\storm_worm.img ssdt --profile=WinXPSP3x86|findstr burito -> Descriptor Table
+
+volatility-2.5.standalone.exe -f c:\labimages\storm_worm.img driverirp --profile=WinXPSP3x86|findstr burito -> List hooked Drivers and accessed drivers, Identfies IRP hook requests
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img apihooks --profile=WinXPSP3x86 -> List all API hooks on image memory
+
+volatility-2.5.standalone.exe -f c:\labimages\zeus.img screenshot -D c:\dump --profile=WinXPSP3x86 -> Pull all images from the desktop memory
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img procdump -D c:\dump --profile=WinXPSP3x86 -> Pulls all Executables from Memory/Desktop memory (COULD BE RUN UPON DOWNLOAD. BE CAREFUL.)
+
+volatility-2.5.standalone.exe -f c:\labimages\sobig.img timeliner --profile=WinXPSP3x86 > test.txt -> creates timeline and puts it into a text file
+
